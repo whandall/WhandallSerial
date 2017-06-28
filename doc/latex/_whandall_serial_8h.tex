@@ -1,0 +1,89 @@
+\hypertarget{_whandall_serial_8h}{}\section{src/\+Whandall\+Serial.h File Reference}
+\label{_whandall_serial_8h}\index{src/\+Whandall\+Serial.\+h@{src/\+Whandall\+Serial.\+h}}
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_s_serial}{S\+Serial}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void($\ast$ \hyperlink{_whandall_serial_8h_a3241d91f371dd5951b01532bce8e7be2}{line\+Process}) (const char $\ast$i\+Line)
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ \newline
+\hyperlink{_whandall_serial_8h_a06fc87d81c62e9abb8790b6e5713c55bacc63c089b9dafe1efd16e2e987c686dd}{cb\+LF} = 10, 
+\hyperlink{_whandall_serial_8h_a06fc87d81c62e9abb8790b6e5713c55bac7b7f1112111c5c19bbed2142e9718e7}{cb\+CR} = 13, 
+\hyperlink{_whandall_serial_8h_a06fc87d81c62e9abb8790b6e5713c55baf21a991254b45f89333c5f2723381f85}{cb\+NX} = 0x\+FF, 
+\hyperlink{_whandall_serial_8h_a06fc87d81c62e9abb8790b6e5713c55ba21464d1b8daee38b3531cf82121ce286}{opt\+Ignore\+LF} = 0x40, 
+\newline
+\hyperlink{_whandall_serial_8h_a06fc87d81c62e9abb8790b6e5713c55baa70b7011843fa6daa09e3e7c63efd2e8}{opt\+Skip\+WS} = 0x20, 
+\hyperlink{_whandall_serial_8h_a06fc87d81c62e9abb8790b6e5713c55baedf3788d8c81bc1bf676629e0dda7db2}{opt\+Empty\+Too} = 0x10, 
+\hyperlink{_whandall_serial_8h_a06fc87d81c62e9abb8790b6e5713c55bad3dc2d0e2b4cef16719660b284783645}{opt\+Triple\+FF} = 0x08, 
+\hyperlink{_whandall_serial_8h_a06fc87d81c62e9abb8790b6e5713c55ba999d8533fade02de1162dbee8a5496e8}{opt\+Keep\+Dlm} = 0x04, 
+\newline
+\hyperlink{_whandall_serial_8h_a06fc87d81c62e9abb8790b6e5713c55bad885323af64e8c95148604561e0b571f}{opt\+Debug} = 0x02, 
+\hyperlink{_whandall_serial_8h_a06fc87d81c62e9abb8790b6e5713c55ba02d52a7747bc886797790bec41d204f8}{opt\+Debug\+Detail} = 0x01
+ \}
+\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\mbox{\Hypertarget{_whandall_serial_8h_a3241d91f371dd5951b01532bce8e7be2}\label{_whandall_serial_8h_a3241d91f371dd5951b01532bce8e7be2}} 
+\index{Whandall\+Serial.\+h@{Whandall\+Serial.\+h}!line\+Process@{line\+Process}}
+\index{line\+Process@{line\+Process}!Whandall\+Serial.\+h@{Whandall\+Serial.\+h}}
+\subsubsection{\texorpdfstring{line\+Process}{lineProcess}}
+{\footnotesize\ttfamily typedef void($\ast$ line\+Process) (const char $\ast$i\+Line)}
+
+Typ der Funktion, die nach Empfang einer vollständigen Zeile aufgerufen wird 
+
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{_whandall_serial_8h_a06fc87d81c62e9abb8790b6e5713c55b}\label{_whandall_serial_8h_a06fc87d81c62e9abb8790b6e5713c55b}} 
+\subsubsection{\texorpdfstring{anonymous enum}{anonymous enum}}
+{\footnotesize\ttfamily anonymous enum}
+
+Enumeration der verwendeten A\+S\+C\+II Zeichen und der Bits für die Optionen. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{cb\+LF@{cb\+LF}!Whandall\+Serial.\+h@{Whandall\+Serial.\+h}}\index{Whandall\+Serial.\+h@{Whandall\+Serial.\+h}!cb\+LF@{cb\+LF}}}\mbox{\Hypertarget{_whandall_serial_8h_a06fc87d81c62e9abb8790b6e5713c55bacc63c089b9dafe1efd16e2e987c686dd}\label{_whandall_serial_8h_a06fc87d81c62e9abb8790b6e5713c55bacc63c089b9dafe1efd16e2e987c686dd}} 
+cb\+LF&Line\+Feed. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{cb\+CR@{cb\+CR}!Whandall\+Serial.\+h@{Whandall\+Serial.\+h}}\index{Whandall\+Serial.\+h@{Whandall\+Serial.\+h}!cb\+CR@{cb\+CR}}}\mbox{\Hypertarget{_whandall_serial_8h_a06fc87d81c62e9abb8790b6e5713c55bac7b7f1112111c5c19bbed2142e9718e7}\label{_whandall_serial_8h_a06fc87d81c62e9abb8790b6e5713c55bac7b7f1112111c5c19bbed2142e9718e7}} 
+cb\+CR&Carriage\+Return. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{cb\+NX@{cb\+NX}!Whandall\+Serial.\+h@{Whandall\+Serial.\+h}}\index{Whandall\+Serial.\+h@{Whandall\+Serial.\+h}!cb\+NX@{cb\+NX}}}\mbox{\Hypertarget{_whandall_serial_8h_a06fc87d81c62e9abb8790b6e5713c55baf21a991254b45f89333c5f2723381f85}\label{_whandall_serial_8h_a06fc87d81c62e9abb8790b6e5713c55baf21a991254b45f89333c5f2723381f85}} 
+cb\+NX&Nextion Delimiter, 3 hintereinander. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{opt\+Ignore\+LF@{opt\+Ignore\+LF}!Whandall\+Serial.\+h@{Whandall\+Serial.\+h}}\index{Whandall\+Serial.\+h@{Whandall\+Serial.\+h}!opt\+Ignore\+LF@{opt\+Ignore\+LF}}}\mbox{\Hypertarget{_whandall_serial_8h_a06fc87d81c62e9abb8790b6e5713c55ba21464d1b8daee38b3531cf82121ce286}\label{_whandall_serial_8h_a06fc87d81c62e9abb8790b6e5713c55ba21464d1b8daee38b3531cf82121ce286}} 
+opt\+Ignore\+LF&Line\+Feed ignorieren. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{opt\+Skip\+WS@{opt\+Skip\+WS}!Whandall\+Serial.\+h@{Whandall\+Serial.\+h}}\index{Whandall\+Serial.\+h@{Whandall\+Serial.\+h}!opt\+Skip\+WS@{opt\+Skip\+WS}}}\mbox{\Hypertarget{_whandall_serial_8h_a06fc87d81c62e9abb8790b6e5713c55baa70b7011843fa6daa09e3e7c63efd2e8}\label{_whandall_serial_8h_a06fc87d81c62e9abb8790b6e5713c55baa70b7011843fa6daa09e3e7c63efd2e8}} 
+opt\+Skip\+WS&Leerzeichen am Zeilenanfang unterdrücken. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{opt\+Empty\+Too@{opt\+Empty\+Too}!Whandall\+Serial.\+h@{Whandall\+Serial.\+h}}\index{Whandall\+Serial.\+h@{Whandall\+Serial.\+h}!opt\+Empty\+Too@{opt\+Empty\+Too}}}\mbox{\Hypertarget{_whandall_serial_8h_a06fc87d81c62e9abb8790b6e5713c55baedf3788d8c81bc1bf676629e0dda7db2}\label{_whandall_serial_8h_a06fc87d81c62e9abb8790b6e5713c55baedf3788d8c81bc1bf676629e0dda7db2}} 
+opt\+Empty\+Too&Aktion auch für Leerzeilen ausführen. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{opt\+Triple\+FF@{opt\+Triple\+FF}!Whandall\+Serial.\+h@{Whandall\+Serial.\+h}}\index{Whandall\+Serial.\+h@{Whandall\+Serial.\+h}!opt\+Triple\+FF@{opt\+Triple\+FF}}}\mbox{\Hypertarget{_whandall_serial_8h_a06fc87d81c62e9abb8790b6e5713c55bad3dc2d0e2b4cef16719660b284783645}\label{_whandall_serial_8h_a06fc87d81c62e9abb8790b6e5713c55bad3dc2d0e2b4cef16719660b284783645}} 
+opt\+Triple\+FF&Nextion Format (Delimiter\+: 3 x 0x\+FF) verwenden. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{opt\+Keep\+Dlm@{opt\+Keep\+Dlm}!Whandall\+Serial.\+h@{Whandall\+Serial.\+h}}\index{Whandall\+Serial.\+h@{Whandall\+Serial.\+h}!opt\+Keep\+Dlm@{opt\+Keep\+Dlm}}}\mbox{\Hypertarget{_whandall_serial_8h_a06fc87d81c62e9abb8790b6e5713c55ba999d8533fade02de1162dbee8a5496e8}\label{_whandall_serial_8h_a06fc87d81c62e9abb8790b6e5713c55ba999d8533fade02de1162dbee8a5496e8}} 
+opt\+Keep\+Dlm&Delimiter im Puffer belassen (also mit übergeben) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{opt\+Debug@{opt\+Debug}!Whandall\+Serial.\+h@{Whandall\+Serial.\+h}}\index{Whandall\+Serial.\+h@{Whandall\+Serial.\+h}!opt\+Debug@{opt\+Debug}}}\mbox{\Hypertarget{_whandall_serial_8h_a06fc87d81c62e9abb8790b6e5713c55bad885323af64e8c95148604561e0b571f}\label{_whandall_serial_8h_a06fc87d81c62e9abb8790b6e5713c55bad885323af64e8c95148604561e0b571f}} 
+opt\+Debug&Debug Ausgaben auf Serial. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{opt\+Debug\+Detail@{opt\+Debug\+Detail}!Whandall\+Serial.\+h@{Whandall\+Serial.\+h}}\index{Whandall\+Serial.\+h@{Whandall\+Serial.\+h}!opt\+Debug\+Detail@{opt\+Debug\+Detail}}}\mbox{\Hypertarget{_whandall_serial_8h_a06fc87d81c62e9abb8790b6e5713c55ba02d52a7747bc886797790bec41d204f8}\label{_whandall_serial_8h_a06fc87d81c62e9abb8790b6e5713c55ba02d52a7747bc886797790bec41d204f8}} 
+opt\+Debug\+Detail&detailiertere Debug Ausgaben aus Serial \\
+\hline
+
+\end{DoxyEnumFields}

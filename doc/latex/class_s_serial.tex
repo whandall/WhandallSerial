@@ -1,0 +1,217 @@
+\hypertarget{class_s_serial}{}\section{S\+Serial Class Reference}
+\label{class_s_serial}\index{S\+Serial@{S\+Serial}}
+
+
+{\ttfamily \#include $<$Whandall\+Serial.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_s_serial_a44e2b09ee4e64e82df103166d21ac516}{S\+Serial} (Stream \&in\+Ser, \hyperlink{_whandall_serial_8h_a3241d91f371dd5951b01532bce8e7be2}{line\+Process} i\+Handler)
+\begin{DoxyCompactList}\small\item\em Konstruktor, setzt nur die Schnittstelle und die Verarbeitungsroutine. \end{DoxyCompactList}\item 
+\hyperlink{class_s_serial_af153a485fe12aed9f49c4d9fcbd636fd}{$\sim$\+S\+Serial} ()
+\begin{DoxyCompactList}\small\item\em Destruktor, gibt den allocierten Speicher zurück, dazu muss der Zeiger wieder korrigiert werden. \end{DoxyCompactList}\item 
+void \hyperlink{class_s_serial_ad82361ddb96f50e930af7734086c7ed8}{begin} (uint8\+\_\+t max\+Message, uint8\+\_\+t in\+Opts=\hyperlink{_whandall_serial_8h_a06fc87d81c62e9abb8790b6e5713c55ba21464d1b8daee38b3531cf82121ce286}{opt\+Ignore\+LF})
+\begin{DoxyCompactList}\small\item\em Setup Funktion des Objekts, definiert maximale Nachrichtenlänge und eventuelle Optionen. \end{DoxyCompactList}\item 
+void \hyperlink{class_s_serial_a4c07d6d5d036ca05717c73836c5cc807}{loop} ()
+\begin{DoxyCompactList}\small\item\em verarbeite eventuelle Eingaben auf serial, wenn eine Nachricht vollständig ist, rufe handler auf \end{DoxyCompactList}\item 
+uint8\+\_\+t $\ast$ \hyperlink{class_s_serial_a51b04c6d668df7f059c05bbc20e6ce7d}{get\+Buffer} ()
+\begin{DoxyCompactList}\small\item\em Zugriff auf den internen Puffer. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{class_s_serial_af905db964544b6acc41b6214f59b494b}{get\+Index} ()
+\begin{DoxyCompactList}\small\item\em Position des nächsten empfangenen Zeichens, also hinter den empfangenen Bereich, gleichzeitig Länge des bisher eingegangen Teils der Nachrich. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{class_s_serial_a1b6055bcc85e4ab6a9022ea696da81fe}{get\+Size} ()
+\begin{DoxyCompactList}\small\item\em Maximalgröße einer Nachricht. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{class_s_serial_a25d8d6940a777f1ee9025d84686427f4}{blank\+And\+Hex} (uint8\+\_\+t inB)
+\begin{DoxyCompactList}\small\item\em Hilfsfunktion zur Ausgabe eines Bytes in H\+EX. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Stream \& \hyperlink{class_s_serial_af44a40fe24625e4e17194246271e0598}{serial}
+\begin{DoxyCompactList}\small\item\em eine Referenz auf das Stream Objekt das gepollt werden soll \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{class_s_serial_a3255a7976e6239590a0c092db3786e12}{options}
+\begin{DoxyCompactList}\small\item\em alle Betriebs-\/\+Optionen in einer Variablen vereinigt \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{class_s_serial_aaff6d77ae9a9b281c2f5ad22188fffab}{b\+Size}
+\begin{DoxyCompactList}\small\item\em Maximallänge einer Nachricht, die Länge des allocierten Puffers ist um zwei größer. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{class_s_serial_a17036a378a918f18f0fc05b7d7adf7bd}{b\+Index}
+\begin{DoxyCompactList}\small\item\em Index der Stelle im Puffer, an der das nächste Zeichen abgelegt werden soll. \end{DoxyCompactList}\item 
+uint8\+\_\+t $\ast$ \hyperlink{class_s_serial_a56fe3cf5655bae95a5bc80230280dde3}{buffer}
+\begin{DoxyCompactList}\small\item\em Zeiger auf den Benutzerpuffer, also ein Byte hinter der Länge. \end{DoxyCompactList}\item 
+\hyperlink{_whandall_serial_8h_a3241d91f371dd5951b01532bce8e7be2}{line\+Process} \hyperlink{class_s_serial_a544190e3b803cb35b4ec5e5fa9bb3ff0}{handler}
+\begin{DoxyCompactList}\small\item\em Zeiger auf die Verarbeitungsroutine. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Hier sind die Variablen und Funktionen der seriellen Anbindung versammelt. \begin{DoxyVerb}Im Konstruktor wird der zu lesende Stream und die Verarbeitungsroutine definiert.
+\end{DoxyVerb}
+
+\begin{DoxyItemize}
+\item \hyperlink{class_s_serial}{S\+Serial} blue(\+Serial1, blue\+Handler);
+
+In der Funktion {\itshape \hyperlink{class_s_serial_ad82361ddb96f50e930af7734086c7ed8}{begin()}} wird die maximale Nachrichtenlänge und eventuelle Optionen festgelegt.
+\end{DoxyItemize}
+
+blue.\+begin(40, opt\+Empty\+Too + opt\+Ignore\+LF);
+
+Intern wird mit einem in \hyperlink{class_s_serial_ad82361ddb96f50e930af7734086c7ed8}{begin()} dynamisch angelegten Puffer gearbeitet, der zwei Bytes länger ist als die angeforderte Größe. Ein Byte wird vom abschließenden \textquotesingle{}\textbackslash{}0\textquotesingle{} belegt (bei maximaler netto Datenlänge), das andere befindet sich vor dem Puffer und trägt die aktuelle Länge um einfach Daten mit eingebetteten \textquotesingle{}\textbackslash{}0\textquotesingle{} bearbeiten zu können. Die schon zur Verfügung stehende Länge könnte natürlich auch im Normalfall nützlich sein.
+
+Innerhalb der globalen \hyperlink{class_s_serial_a4c07d6d5d036ca05717c73836c5cc807}{loop()} Funktion muss die Funktion \hyperlink{class_s_serial_a4c07d6d5d036ca05717c73836c5cc807}{loop()} des Objekts aufgerufen werden um das Pollen der Schnittstelle zu ermöglichen. Aus dem Kontext dieser Funktion wird die Verarbeitungsroutine aufgerufen, sobald eine Zeile vollständig empfangen wurde.
+\begin{DoxyItemize}
+\item blue.\+loop(); 
+\end{DoxyItemize}
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_s_serial_a44e2b09ee4e64e82df103166d21ac516}\label{class_s_serial_a44e2b09ee4e64e82df103166d21ac516}} 
+\index{S\+Serial@{S\+Serial}!S\+Serial@{S\+Serial}}
+\index{S\+Serial@{S\+Serial}!S\+Serial@{S\+Serial}}
+\subsubsection{\texorpdfstring{S\+Serial()}{SSerial()}}
+{\footnotesize\ttfamily S\+Serial\+::\+S\+Serial (\begin{DoxyParamCaption}\item[{Stream \&}]{in\+Ser,  }\item[{\hyperlink{_whandall_serial_8h_a3241d91f371dd5951b01532bce8e7be2}{line\+Process}}]{i\+Handler }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Konstruktor, setzt nur die Schnittstelle und die Verarbeitungsroutine. 
+
+\mbox{\Hypertarget{class_s_serial_af153a485fe12aed9f49c4d9fcbd636fd}\label{class_s_serial_af153a485fe12aed9f49c4d9fcbd636fd}} 
+\index{S\+Serial@{S\+Serial}!````~S\+Serial@{$\sim$\+S\+Serial}}
+\index{````~S\+Serial@{$\sim$\+S\+Serial}!S\+Serial@{S\+Serial}}
+\subsubsection{\texorpdfstring{$\sim$\+S\+Serial()}{~SSerial()}}
+{\footnotesize\ttfamily S\+Serial\+::$\sim$\+S\+Serial (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Destruktor, gibt den allocierten Speicher zurück, dazu muss der Zeiger wieder korrigiert werden. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_s_serial_ad82361ddb96f50e930af7734086c7ed8}\label{class_s_serial_ad82361ddb96f50e930af7734086c7ed8}} 
+\index{S\+Serial@{S\+Serial}!begin@{begin}}
+\index{begin@{begin}!S\+Serial@{S\+Serial}}
+\subsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily void S\+Serial\+::begin (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{max\+Message,  }\item[{uint8\+\_\+t}]{in\+Opts = {\ttfamily \hyperlink{_whandall_serial_8h_a06fc87d81c62e9abb8790b6e5713c55ba21464d1b8daee38b3531cf82121ce286}{opt\+Ignore\+LF}} }\end{DoxyParamCaption})}
+
+
+
+Setup Funktion des Objekts, definiert maximale Nachrichtenlänge und eventuelle Optionen. 
+
+\mbox{\Hypertarget{class_s_serial_a25d8d6940a777f1ee9025d84686427f4}\label{class_s_serial_a25d8d6940a777f1ee9025d84686427f4}} 
+\index{S\+Serial@{S\+Serial}!blank\+And\+Hex@{blank\+And\+Hex}}
+\index{blank\+And\+Hex@{blank\+And\+Hex}!S\+Serial@{S\+Serial}}
+\subsubsection{\texorpdfstring{blank\+And\+Hex()}{blankAndHex()}}
+{\footnotesize\ttfamily void S\+Serial\+::blank\+And\+Hex (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{inB }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Hilfsfunktion zur Ausgabe eines Bytes in H\+EX. 
+
+\mbox{\Hypertarget{class_s_serial_a51b04c6d668df7f059c05bbc20e6ce7d}\label{class_s_serial_a51b04c6d668df7f059c05bbc20e6ce7d}} 
+\index{S\+Serial@{S\+Serial}!get\+Buffer@{get\+Buffer}}
+\index{get\+Buffer@{get\+Buffer}!S\+Serial@{S\+Serial}}
+\subsubsection{\texorpdfstring{get\+Buffer()}{getBuffer()}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ S\+Serial\+::get\+Buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Zugriff auf den internen Puffer. 
+
+\mbox{\Hypertarget{class_s_serial_af905db964544b6acc41b6214f59b494b}\label{class_s_serial_af905db964544b6acc41b6214f59b494b}} 
+\index{S\+Serial@{S\+Serial}!get\+Index@{get\+Index}}
+\index{get\+Index@{get\+Index}!S\+Serial@{S\+Serial}}
+\subsubsection{\texorpdfstring{get\+Index()}{getIndex()}}
+{\footnotesize\ttfamily uint8\+\_\+t S\+Serial\+::get\+Index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Position des nächsten empfangenen Zeichens, also hinter den empfangenen Bereich, gleichzeitig Länge des bisher eingegangen Teils der Nachrich. 
+
+\mbox{\Hypertarget{class_s_serial_a1b6055bcc85e4ab6a9022ea696da81fe}\label{class_s_serial_a1b6055bcc85e4ab6a9022ea696da81fe}} 
+\index{S\+Serial@{S\+Serial}!get\+Size@{get\+Size}}
+\index{get\+Size@{get\+Size}!S\+Serial@{S\+Serial}}
+\subsubsection{\texorpdfstring{get\+Size()}{getSize()}}
+{\footnotesize\ttfamily uint8\+\_\+t S\+Serial\+::get\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Maximalgröße einer Nachricht. 
+
+\mbox{\Hypertarget{class_s_serial_a4c07d6d5d036ca05717c73836c5cc807}\label{class_s_serial_a4c07d6d5d036ca05717c73836c5cc807}} 
+\index{S\+Serial@{S\+Serial}!loop@{loop}}
+\index{loop@{loop}!S\+Serial@{S\+Serial}}
+\subsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily void S\+Serial\+::loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+verarbeite eventuelle Eingaben auf serial, wenn eine Nachricht vollständig ist, rufe handler auf 
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_s_serial_a17036a378a918f18f0fc05b7d7adf7bd}\label{class_s_serial_a17036a378a918f18f0fc05b7d7adf7bd}} 
+\index{S\+Serial@{S\+Serial}!b\+Index@{b\+Index}}
+\index{b\+Index@{b\+Index}!S\+Serial@{S\+Serial}}
+\subsubsection{\texorpdfstring{b\+Index}{bIndex}}
+{\footnotesize\ttfamily uint8\+\_\+t S\+Serial\+::b\+Index\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Index der Stelle im Puffer, an der das nächste Zeichen abgelegt werden soll. 
+
+\mbox{\Hypertarget{class_s_serial_aaff6d77ae9a9b281c2f5ad22188fffab}\label{class_s_serial_aaff6d77ae9a9b281c2f5ad22188fffab}} 
+\index{S\+Serial@{S\+Serial}!b\+Size@{b\+Size}}
+\index{b\+Size@{b\+Size}!S\+Serial@{S\+Serial}}
+\subsubsection{\texorpdfstring{b\+Size}{bSize}}
+{\footnotesize\ttfamily uint8\+\_\+t S\+Serial\+::b\+Size\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Maximallänge einer Nachricht, die Länge des allocierten Puffers ist um zwei größer. 
+
+\mbox{\Hypertarget{class_s_serial_a56fe3cf5655bae95a5bc80230280dde3}\label{class_s_serial_a56fe3cf5655bae95a5bc80230280dde3}} 
+\index{S\+Serial@{S\+Serial}!buffer@{buffer}}
+\index{buffer@{buffer}!S\+Serial@{S\+Serial}}
+\subsubsection{\texorpdfstring{buffer}{buffer}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ S\+Serial\+::buffer\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Zeiger auf den Benutzerpuffer, also ein Byte hinter der Länge. 
+
+\mbox{\Hypertarget{class_s_serial_a544190e3b803cb35b4ec5e5fa9bb3ff0}\label{class_s_serial_a544190e3b803cb35b4ec5e5fa9bb3ff0}} 
+\index{S\+Serial@{S\+Serial}!handler@{handler}}
+\index{handler@{handler}!S\+Serial@{S\+Serial}}
+\subsubsection{\texorpdfstring{handler}{handler}}
+{\footnotesize\ttfamily \hyperlink{_whandall_serial_8h_a3241d91f371dd5951b01532bce8e7be2}{line\+Process} S\+Serial\+::handler\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Zeiger auf die Verarbeitungsroutine. 
+
+\mbox{\Hypertarget{class_s_serial_a3255a7976e6239590a0c092db3786e12}\label{class_s_serial_a3255a7976e6239590a0c092db3786e12}} 
+\index{S\+Serial@{S\+Serial}!options@{options}}
+\index{options@{options}!S\+Serial@{S\+Serial}}
+\subsubsection{\texorpdfstring{options}{options}}
+{\footnotesize\ttfamily uint8\+\_\+t S\+Serial\+::options\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+alle Betriebs-\/\+Optionen in einer Variablen vereinigt 
+
+\mbox{\Hypertarget{class_s_serial_af44a40fe24625e4e17194246271e0598}\label{class_s_serial_af44a40fe24625e4e17194246271e0598}} 
+\index{S\+Serial@{S\+Serial}!serial@{serial}}
+\index{serial@{serial}!S\+Serial@{S\+Serial}}
+\subsubsection{\texorpdfstring{serial}{serial}}
+{\footnotesize\ttfamily Stream\& S\+Serial\+::serial\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+eine Referenz auf das Stream Objekt das gepollt werden soll 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{_whandall_serial_8h}{Whandall\+Serial.\+h}\item 
+src/\hyperlink{_whandall_serial_8cpp}{Whandall\+Serial.\+cpp}\end{DoxyCompactItemize}
